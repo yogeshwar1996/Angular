@@ -7,8 +7,6 @@ app.controller('pizzaController', [
             availableToppings: ['Cheese', 'Pepperoni', 'Bacon', 'Pineapple', 'Sausage', 'Ham',
                 'Chicken', 'Mushrooms', 'Onion', 'Olives', 'Green Peppers'],
             toppings: []
-            // ,
-            // filteredToppings: []
         };
         $scope.addTopping = function (topping) {
             // Add values to the array if the dont exist already otherwise
