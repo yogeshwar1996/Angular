@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Tony's Pizza</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+</head>
+
+<body ng-controller="menuController">
+    <div class="container">
+        <h1>Tony's Pizza</h1>
+        <!--Putting a $scope variable's name inside an Angular expression {{ }} binds it to the view,
+         and sets up a watcher to keep up on the value.
+         If you know a variable isn't going to change in the view, and you just want to bind its initial value,
+         you can use the '::' characters in your expression (e.g. {{::model.title}}) to perform a one-time binding.
+         This tells Angular to go ahead and set the value the first time, but not to set a watcher to keep up on it.
+         This can be a useful performance boost for larger applications.-->
+        <h2>{{model.title}}</h2>
+
+        <div>
+            <label><input type="radio" name="category" ng-click="changeMainDish('Cheese Pizza', '$12.23')" /> Cheese Pizza</label>
+        </div>
+        <div>
+            <label><input type="radio" name="category" ng-click="changeMainDish('Pepperoni Pizza', '$13.99')" /> Pepperoni Pizza</label>
+        </div>
+        <div>
+            <label><input type="radio" name="category" ng-click="changeMainDish('Margherita  Pizza', '$14.23')"/> Margherita Pizza</label>
+        </div>
+        <div>
+            <label><input type="radio" name="category" ng-click="changeMainDish('BBQ Chicken Pizza', '$19.29')"/> BBQ Chicken Pizza</label>
+        </div>
+        <div>
+            <label><input type="radio" name="category" ng-click="changeMainDish('Combo Pizza', '$17.90')" /> Combo Pizza</label>
+        </div>
+
+        <div>
+            <h3>Selected Item</h3>
+            <pre>{{model.mainDish.item}}</pre>
+        </div>
+
+        <div>
+            <h3>Special Instuctions</h3>
+            <textarea class="form-control" ng-model="model.specialInstructions"></textarea>
+        </div>
+        <!--Note: model.specialInstructions is not there in the controller but ng-model will create it in the $scope-->
+        <div>
+            <h3>Order Summary</h3>
+            <pre>{{model.mainDish.item}} {{model.mainDish.price}} - {{model.specialInstructions}}</pre>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="./app/app.js"></script>
+    <script src="./app/menuController.js"></script>
+</body>
+
+</html>

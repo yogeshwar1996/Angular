@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>Tony's Pizza</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+</head>
+<style>
+    .alert {
+        margin-bottom: 10px;
+
+        .alert-success{
+            background-color: #d6f3d7;
+        }
+        .alert-danger{
+            background-color: #f8dbdc;
+        }
+    }
+</style>
+<body ng-controller="pizzaController">
+<div class="container">
+    <h1>Tony's Pizza</h1>
+
+    <h2>{{model.title}}</h2>
+
+    <h3>Topping Search</h3>
+
+    <input type="text" class="form-control" ng-model="model.search">
+
+    <div class="alert alert-success" ng-show="newValueAdded && model.search==null">
+        Topping added.
+        <button ng-click="success=!success">close</button>
+    </div>
+    <!--Show the message of No Results when the filtered values array is empty
+    and there is at least some string in the input field -->
+    <div class="alert alert-danger" ng-show="filteredToppings.length==0 && model.search!=null">
+       No results.
+    </div>
+    <div ng-hide="model.search">
+        Enter the search criteria above.
+    </div>
+
+    <div ng-show="model.search">
+        search results
+    </div>
+    <!--Using filter: model.search will filter the list as you type in the input field
+        we can store the filtered values in a "filteredToppings" variable which can be further used in ng-repeat and
+        determining if values exist after filtering or not-->
+    <div ng-show="model.search"
+         ng-repeat="t in  filteredToppings = (model.availableToppings| filter: model.search)">
+        <span ng-click="addTopping(t)">{{t}}</span>
+    </div>
+
+    <h3 ng-show="model.toppings.length>0">Selected Toppings</h3>
+    <div ng-repeat="t in model.toppings">
+        {{t}}
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+<script src="./app/app.js"></script>
+<script src="./app/pizzaController.js"></script>
+</body>
+
+</html>
