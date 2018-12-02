@@ -1,10 +1,10 @@
 app.controller('pizzaController', [
     '$scope',
     function ($scope) {
-        $scope.newValueAdded=false;
+        $scope.newValueAdded = false;
         $scope.model = {
             title: 'Pizza Builder',
-            availableToppings: ['Cheese', 'Tomato', 'Saesoning', 'Pineapple','jalapenos',
+            availableToppings: ['Cheese', 'Tomato', 'Saesoning', 'Pineapple', 'jalapenos',
                 'Mushrooms', 'Onion', 'Olives', 'Green Peppers', 'Broccoli'],
             toppings: []
         };
