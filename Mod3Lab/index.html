@@ -8,13 +8,12 @@
           crossorigin="anonymous">
 </head>
 <style>
-    .alert {
-        .alert-success{
-            background-color: #d6f3d7;
-        }
-        .alert-danger{
-            background-color: #f8dbdc;
-        }
+    .alert-success {
+        background-color: #d6f3d7;
+    }
+
+    .alert-danger {
+        background-color: #f8dbdc;
     }
 </style>
 <body ng-controller="pizzaController">
@@ -34,7 +33,7 @@
     <!--Show the message of No Results when the filtered values array is empty
     and there is at least some string in the input field -->
     <div class="alert alert-danger" ng-show="filteredToppings.length==0 && model.search!=null">
-       No results.
+        No results.
     </div>
     <div ng-hide="model.search">
         Enter the search criteria above.
