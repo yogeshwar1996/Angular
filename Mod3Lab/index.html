@@ -3,7 +3,8 @@
 
 <head>
     <title>Tony's Pizza</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
           integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
           crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
@@ -17,15 +18,19 @@
 
     <h3>Topping Search</h3>
 
-    <input type="text" class="form-control" ng-model="model.search">
+    <input type="text"
+           class="form-control"
+           ng-model="model.search">
 
-    <div class="alert alert-success" ng-show="newValueAdded && model.search==null">
+    <div class="alert alert-success"
+         ng-show="newValueAdded && model.search==null">
         Topping added.
         <button ng-click="newValueAdded=!newValueAdded">close</button>
     </div>
     <!--Show the message of No Results when the filtered values array is empty
     and there is at least some string in the input field -->
-    <div class="alert alert-danger" ng-show="filteredToppings.length==0 && model.search!=null">
+    <div class="alert alert-danger"
+         ng-show="filteredToppings.length==0 && model.search!=null">
         No results.
     </div>
     <div ng-hide="model.search">
