@@ -1,3 +1,4 @@
+//Working with Promises
 app.controller('labController', [
     '$scope', '$timeout', '$q',
     function ($scope, $timeout, $q) {
