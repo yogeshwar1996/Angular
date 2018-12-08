@@ -6,10 +6,12 @@ angular.module('gitHubService', ['ngResource'])
     function ($resource) {
         return $resource(
             //Url
-            'https://api.github.com/:action/edgemetric/:id',
+            // 'https://api.github.com/:action/angular/:id', Here organization is hard-coded
+            'https://api.github.com/:action/:org/:id',
             //default params
             {
                 action: '@action',
+                org: '@org',
                 id: '@id'
             },
             //Custom Methods
@@ -17,6 +19,7 @@ angular.module('gitHubService', ['ngResource'])
                 getAll: {
                     method: 'GET',
                     isArray: true,
+                    // params: {action: 'orgs',  id: 'repos'}
                     params: {action: 'orgs', id: 'repos'}
                 },
                 getDetail: {

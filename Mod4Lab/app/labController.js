@@ -11,12 +11,36 @@ app.controller('labController', [
         $scope.getRepos = getRepos;
         $scope.loadDetail = loadDetail;
 
-        function getRepos(){
-            $scope.model.repos = gitHub.getAll()
+        function getRepos() {
+            //When organisation is hard-coded in url
+            // $scope.model.repos = gitHub.getAll()
+
+            // When organization is given as input by user
+
+            $scope.model.repos = gitHub.getAll({org: $scope.model.search});
+            // There are two ways handle results when making an ajax call the above method is tedious
+            // if error occurs then response will have $promise.$$state.value.data.message="Not Found"
+            // if success then response will have data in array
+
+            // This method is more organized
+            // gitHub.getAll({org: $scope.model.search}).$promise.then(
+            //     function (response) {
+            //         // $scope.model.repos = response;
+            //         console.log("The response after resolved  is", response);
+            //     },
+            //     function (response) {
+            //         $scope.model.repos = response;
+            //         console.log("The response after rejected is", response);
+            //     });
+
+            console.log("The result is ", $scope.model.repos)
         }
+
         function loadDetail(name){
             $scope.model.detail = null;
-            $scope.model.detail = gitHub.getDetail({ id: name });
+            // $scope.model.detail = gitHub.getDetail({ id: name });
+            $scope.model.detail = gitHub.getDetail({ org: $scope.model.search, id: name });
+            console.log("Model detail is",$scope.model.detail)
         }
         // function getRepos() {
         //     $http.get('https://api.github.com/orgs/edgemetric/repos')
