@@ -11,6 +11,7 @@ app.controller('labController', [
         $scope.getRepos = getRepos;
         $scope.loadDetail = loadDetail;
 
+        //When ajax calls are made from a service "gitHub" created for this purpose
         function getRepos() {
             //When organisation is hard-coded in url
             // $scope.model.repos = gitHub.getAll()
@@ -42,6 +43,8 @@ app.controller('labController', [
             $scope.model.detail = gitHub.getDetail({ org: $scope.model.search, id: name });
             console.log("Model detail is",$scope.model.detail)
         }
+
+        //When the ajax calls are made from within the controller
         // function getRepos() {
         //     $http.get('https://api.github.com/orgs/edgemetric/repos')
         //         .then(function (response) {
