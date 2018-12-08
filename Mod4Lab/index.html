@@ -22,11 +22,71 @@
                ng-click="checkOddNumber(model.number)"/>
 
         <pre>{{model.result}}</pre>
-    </div>
+        <div class="col-md-6">
+            <table class="table table-striped" ng-show="model.repos">
+                <tr>
+                    <th>Name</th>
+                    <th>Language</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="r in model.repos">
+                    <td>
+                        <h4>{{r.name}}</h4> {{r.description}}
+                    </td>
+                    <td>{{r.language}}</td>
+                    <td>
+                        <input type="button"
+                               class="btn btn-success"
+                               ng-click="loadDetail(r.name)"
+                               value="Detail">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <input type="button"
+                   class="btn btn-primary"
+                   value="Load Repos"
+                   ng-click="getRepos()"
+                   ng-hide="model.repos" />
+        </div>
+        <div class="col-md-5" ng-show="model.detail">
+            <h3>Detail</h3>
+            <div ng-show="model.detail.error"
+                 class="alert alert-danger">
+                <h3>Error</h3>
+                {{model.detail.message}}
+            </div>
 
+            <div ng-hide="model.detail.error">
+                <h4>Name</h4>
+                {{model.detail.name}}
+            </div>
+
+            <div ng-show="model.detail.description" ng-hide="model.detail.error">
+                <h4>Description</h4>
+                {{model.detail.description}}
+            </div>
+
+            <div ng-hide="model.detail.error==true">
+                <h4>URL</h4>
+                <a ng-href="{{model.detail.html_url}}"
+                   target="_blank">
+                    {{model.detail.html_url}}
+                </a>
+            </div>
+
+            <h4>Raw Data</h4>
+            <!--Using  json filter will display the data with proper identation and linewise-->
+            <pre>{{model.detail | json}}</pre>
+        </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.min.js"></script>
     <script src="./app/app.js"></script>
+    <script src="./app/gitHubService.js"></script>
     <script src="./app/labController.js"></script>
+
 </body>
 
 </html>
