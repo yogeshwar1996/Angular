@@ -13,11 +13,13 @@
 
 <body ng-controller="labController">
     <div class="container">
-        <h1>New User Registration</h1>
+        <h1 ng-hide="model.token">New User Registration</h1>
+        <h1 ng-show="model.token">Registration Sucessfull</h1>
         <form class="form-horizontal"
               name="form"
               novalidate
-              ng-submit="submit(model)">
+              ng-submit="submit(model)"
+              ng-hide="model.token">
             <div class="form-group">
                 <div class="col-md-2">
                     <label>Username</label>
@@ -72,7 +74,7 @@
                 </div>
                 <div class="col-md-5">
                     <input type="number"
-                           ng-required="true"
+                           ng-required="!model.email"
                            name="phone"
                            class="form-control"
                            ng-model="model.phone">
@@ -88,7 +90,7 @@
                 </div>
                 <div class="col-md-5">
                     <input type="email"
-                           ng-required="true"
+                           ng-required="!model.phone"
                            name="emailAddress"
                            class="form-control"
                            ng-model="model.email">
@@ -132,8 +134,11 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular-resource.min.js"></script>
     <script src="./app/app.js"></script>
     <script src="./app/labController.js"></script>
+    <script src="./app/registrationService.js"></script>
+
 </body>
 
 </html>
