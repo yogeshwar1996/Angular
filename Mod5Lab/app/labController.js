@@ -2,6 +2,7 @@ app.controller('labController', [
     '$scope',
     function ($scope) {
         $scope.reset = reset;
+        reset();
         $scope.model = {
             pizzaOptions: [{disp: 'Cheese Pizza', val: 'cheese'},
                 {disp: 'Pepperoni Pizza', val: 'pepperoni'},
