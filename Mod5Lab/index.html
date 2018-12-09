@@ -76,8 +76,8 @@
                 </div>
                 <div class="col-md-5">
                     <select name='favorite'
-                            ng-model="selectedPizza"
-                            ng-options="item.val as item.disp for item in model.pizzaOptions">
+                            ng-model="model.favorite"
+                            ng-options="item.val as item.disp for item in pizzaOptions">
                         <option value="" disabled>Select your pizza</option>
                     </select>
                 </div>
