@@ -14,13 +14,16 @@
 <body ng-controller="labController">
     <div class="container">
         <h1>New User Registration</h1>
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="form">
             <div class="form-group">
                 <div class="col-md-2">
-                    <label>Username</label><br>
+                    <label>Username</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" name="username" class="form-control">
+                    <input type="text"
+                           name="username"
+                           class="form-control"
+                           ng-model="model.username">
                 </div>
             </div>
             <div class="form-group">
@@ -28,7 +31,10 @@
                     <label>Password</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="password" name="password" class="form-control">
+                    <input type="password"
+                           name="password"
+                           class="form-control"
+                           ng-model="model.password">
                 </div>
             </div>
             <div class="form-group">
@@ -36,7 +42,10 @@
                     <label>Name</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="text" name="name" class="form-control">
+                    <input type="text"
+                           name="name"
+                           class="form-control"
+                           ng-model="model.name">
                 </div>
             </div>
             <div class="form-group">
@@ -44,7 +53,10 @@
                     <label>Phone Number</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="number" name="phone" class="form-control">
+                    <input type="number"
+                           name="phone"
+                           class="form-control"
+                           ng-model="model.phone">
                 </div>
             </div>
             <div class="form-group">
@@ -52,7 +64,10 @@
                     <label>Email Address</label>
                 </div>
                 <div class="col-md-5">
-                    <input type="email" name="emailAddress" class="form-control">
+                    <input type="email"
+                           name="emailAddress"
+                           class="form-control"
+                           ng-model="model.email">
                 </div>
             </div>
             <div class="form-group">
