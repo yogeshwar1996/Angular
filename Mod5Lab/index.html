@@ -43,6 +43,10 @@
                            name="password"
                            class="form-control"
                            ng-model="model.password">
+                    <div class="alert alert-danger"
+                         ng-show="(form.password.$touched || form.$submitted) && form.password.$error.required">
+                        Password is required
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -55,6 +59,10 @@
                            name="name"
                            class="form-control"
                            ng-model="model.name">
+                    <div class="alert alert-danger"
+                         ng-show="(form.name.$touched || form.$submitted) && form.name.$error.required">
+                        Name is required
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -67,6 +75,10 @@
                            name="phone"
                            class="form-control"
                            ng-model="model.phone">
+                    <div class="alert alert-danger"
+                         ng-show="(form.phone.$touched || form.$submitted) && form.phone.$error.required">
+                        Phone Number is required
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -79,6 +91,10 @@
                            name="emailAddress"
                            class="form-control"
                            ng-model="model.email">
+                    <div class="alert alert-danger"
+                         ng-show="(form.emailAddress.$touched || form.$submitted) && form.emailAddress.$error.required">
+                        Email address is required
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -92,6 +108,10 @@
                             ng-options="item.val as item.disp for item in pizzaOptions">
                         <option value="" disabled>Select your pizza</option>
                     </select>
+                    <div class="alert alert-danger"
+                         ng-show="(form.favorite.$touched || form.$submitted) && form.favorite.$error.required">
+                        Favorite Pizza is required
+                    </div>
                 </div>
             </div>
             <div class="form-group">
