@@ -23,9 +23,14 @@
                 </div>
                 <div class="col-md-5">
                     <input type="text"
+                           required
                            name="username"
                            class="form-control"
                            ng-model="model.username">
+                    <div class="alert alert-danger"
+                         ng-show="(form.username.$touched || form.$submitted) && form.username.$error.required">
+                        Username is required
+                    </div>
                 </div>
             </div>
             <div class="form-group">
@@ -34,6 +39,7 @@
                 </div>
                 <div class="col-md-5">
                     <input type="password"
+                           required
                            name="password"
                            class="form-control"
                            ng-model="model.password">
@@ -45,6 +51,7 @@
                 </div>
                 <div class="col-md-5">
                     <input type="text"
+                           required
                            name="name"
                            class="form-control"
                            ng-model="model.name">
@@ -56,6 +63,7 @@
                 </div>
                 <div class="col-md-5">
                     <input type="number"
+                           ng-required="true"
                            name="phone"
                            class="form-control"
                            ng-model="model.phone">
@@ -67,6 +75,7 @@
                 </div>
                 <div class="col-md-5">
                     <input type="email"
+                           ng-required="true"
                            name="emailAddress"
                            class="form-control"
                            ng-model="model.email">
@@ -79,6 +88,7 @@
                 <div class="col-md-5">
                     <select name='favorite'
                             ng-model="model.favorite"
+                            ng-required="true"
                             ng-options="item.val as item.disp for item in pizzaOptions">
                         <option value="" disabled>Select your pizza</option>
                     </select>
